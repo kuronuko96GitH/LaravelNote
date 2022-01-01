@@ -12,7 +12,13 @@ class TrustProxies extends Middleware
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+//    protected $proxies;
+    // 暫定対応
+    // httpsだと、保護されてない通信と表示されて嫌な気分になるので、
+    // $proxiesに信用するプロキシのIPアドレスを追加します。
+    // '*'は全プロキシを信用するという設定です。
+    // HerokuのプロキシのIPアドレスが分からず、Herokuのセキュリティレベルならこれでも大丈夫そうということで、これを採用しました。
+    protected $proxies = '*';
 
     /**
      * The headers that should be used to detect proxies.
