@@ -18,11 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 //
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/phpinfo', [App\Http\Controllers\HomeController::class, 'info'])->name('phpinfo');
-Route::get('/sqltest', [App\Http\Controllers\HomeController::class, 'sqltest'])->name('sqltest');
-Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 
 Auth::routes();
 
@@ -34,4 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/phpinfo', [App\Http\Controllers\HomeController::class, 'info'])->name('phpinfo');
+    Route::get('/sqltest', [App\Http\Controllers\HomeController::class, 'sqltest'])->name('sqltest');
+    Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 });
