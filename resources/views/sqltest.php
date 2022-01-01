@@ -1,10 +1,10 @@
 テーブル『users』
 <br/>
 <?php
-    // ユーザー名やパスワードなどは、
-    // 後ほど紹介する docker-compose.yml と併せて適宜変更してください
-    $dsn = 'pgsql:dbname=sampledb;host=myapp-db';
-    $db = new PDO($dsn, 'sample-user', 'hi2mi4i6');
+    // Herokuサーバー接続用
+    $dbinfo = parse_url(getenv('DATABASE_URL'));
+    $dsn = 'pgsql:host=' . $dbinfo['host'] . ';dbname=' . substr($dbinfo['path'], 1);
+    $db = new PDO($dsn, $dbinfo['user'], $dbinfo['pass']);
 
     $sql = 'SELECT * FROM users order by id';
     echo '<pre>';
