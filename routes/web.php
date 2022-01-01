@@ -20,9 +20,13 @@ use Illuminate\Support\Facades\Route;
 //
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/phpinfo', [App\Http\Controllers\HomeController::class, 'info'])->name('phpinfo');
+Route::get('/sqltest', [App\Http\Controllers\HomeController::class, 'sqltest'])->name('sqltest');
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+
 Auth::routes();
 
-//Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     // ログイン(認証)をしないと、直接URLを指定しても接続できません。
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
     Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
@@ -30,7 +34,4 @@ Auth::routes();
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
-//});
-
-Route::get('/phpinfo', [App\Http\Controllers\HomeController::class, 'info'])->name('phpinfo');
-Route::get('/sqltest', [App\Http\Controllers\HomeController::class, 'sqltest'])->name('sqltest');
+});
