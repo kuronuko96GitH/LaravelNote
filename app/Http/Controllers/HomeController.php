@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Memo;
 use App\Models\Tag;
 
+use App\Http\Requests\ValidateNote; // ノート画面の入力チェック処理を追加
+
 class HomeController extends Controller
 {
     /**
@@ -55,15 +57,20 @@ class HomeController extends Controller
 
     }
 
-    public function store(Request $request)
+//    public function store(Request $request)
+    public function store(ValidateNote $request) // App\Http\Requests\ValidateNoteで入力チェック
     {
         // 新規メモ作成の保存ボタンの実行処理
-
         $data = $request->all();
         // dd($data); // デバッグ用：$dataの中身を確認する。※実行処理も止まるので注意。
 
         // POSTされたデータをDB（memosテーブル、tagsテーブル）に新規追加
         // MEMOモデルにDBへ保存する命令を出す
+
+        if ( empty($data['tag']) ) {
+            //タグデータが入力されてない場合。
+            $data['tag'] = 'NoTag';
+        } 
 
         // 同じタグがあるか確認
         $exist_tag = Tag::where('name', $data['tag'])->where('user_id', $data['user_id'])->first();
@@ -97,7 +104,8 @@ class HomeController extends Controller
         return view('edit',compact('memo'));
     }
 
-    public function update(Request $request, $id)
+//    public function update(Request $request, $id)
+    public function update(ValidateNote $request, $id) // App\Http\Requests\ValidateNoteで入力チェック
     {
         // メモ編集の更新ボタン処理
         $inputs = $request->all();

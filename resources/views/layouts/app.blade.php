@@ -85,6 +85,13 @@
               {{ session('success') }}
             </div>
         @endif
+        @if(count($errors) > 0)
+        <ul class="bg-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
 <!--
             <div class="row" style='height: 92vh;'>
 -->
