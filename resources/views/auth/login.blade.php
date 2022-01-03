@@ -48,6 +48,13 @@
                                     {{ __('Login') }}
                                 </button>
                             </div>
+
+                            <div class="col-md-8 offset-md-4">
+                            <br>
+                            ゲスト(guest)で、ログインすることもできます。
+                            <br>
+                                <input type="button" class="btn btn-secondary" value="ゲストアカウント" id="guest_button">
+                            </div>
                         </div>
                     </form>
                 </div>
