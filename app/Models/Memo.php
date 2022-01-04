@@ -11,7 +11,8 @@ class Memo extends Model
         $tag = \Request::query('tag');
         // タグがなければ、その人が持っているメモを全て取得
         if(empty($tag)){
-            return $this::select('memos.*')->where('user_id', $user_id)->where('status', 1)->get();      
+            return $this::select('memos.*')->where('user_id', $user_id)->where('status', 1)
+                ->orderBy('updated_at', 'DESC')->get();      
         }else{
             // もしタグの指定があればタグで絞る ->wher(tagがクエリパラメーターで取得したものに一致)
             $memos = $this::select('memos.*')
@@ -20,6 +21,7 @@ class Memo extends Model
                 ->where('tags.user_id', $user_id)
                 ->where('memos.user_id', $user_id)
                 ->where('status', 1)
+                ->orderBy('updated_at', 'DESC')
                 ->get();
             return $memos;
         }

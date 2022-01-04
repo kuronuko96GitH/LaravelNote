@@ -39,8 +39,21 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <!-- justify-content-end 右寄せ -->
                     <!-- Left Side Of Navbar -->
+                    <!-- mr-auto は CSSのmargin-right: autoと同じ効果 -->
                     <ul class="navbar-nav mr-auto">
+<!--
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    About Me
+                                </a>
 
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href='/create'>
+                                    {{ Auth::user()->name }}
+                                    </a>
+                                </div>
+                            </li>
+-->                
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -102,36 +115,61 @@
                 <div class="card-header">タグ一覧
                 </div>
                 <div class="card-body py-2 px-4">
+        @if( $user['admin_code'] === 1 )
+                    <a class='d-block' href='/'>userテーブル<br>(id, name, admin_code, email)</a>
+            @foreach($all_user as $user)
+                    <p class='d-block'>{{ $user['id'] }}, {{ $user['name'] }}, {{ $user['admin_code'] }}, {{ $user['email'] }}</p>
+            @endforeach
+        @else
                     <a class='d-block' href='/'>全て表示</a>
             @foreach($tags as $tag)
                     <a href="/?tag={{ $tag['name'] }}" class='d-block'>{{ $tag['name'] }}</a>
             @endforeach
+        @endif
                 </div>
               </div>
             </div>
-            <div class="col-md-4 p-0">
+
+            <div class="col-md-2 p-0">
+              <div class="card h-100">
+                <div class="card-header d-flex">
+                    <div class="col-md-10 p-0">メモの更新日
+                    </div>
+                    <div class="col-md-2 p-0">
+                    </div>
+                </div>
+
+                <div class="card-body p-2">
+            @foreach($memos as $memo)
+                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>【{{ $memo['updated_at']->timezone("JST")->format('Y/m/d H:i:s') }}】</a>
+            @endforeach
+                </div>
+              </div>    
+            </div>
+
+            <div class="col-md-2 p-0">
               <div class="card h-100">
 <!--
                 <div class="card-header d-flex">メモ一覧 <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>
                 </div>
 -->
                 <div class="card-header d-flex">
-                    <div class="col-md-3 p-0">メモ一覧
-                    </div>
-                    <div class="col-md-7 p-0">
+                    <div class="col-md-5 p-0">メモ一覧
                     </div>
                     <div class="col-md-2 p-0">
+                    </div>
+                    <div class="col-md-5 p-0">
                         <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>新規作成
                     </div>
                 </div>
 
                 <div class="card-body p-2">
             @foreach($memos as $memo)
-                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ $memo['content'] }}</a>
+                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 16) }}</a>
             @endforeach
                 </div>
               </div>    
-            </div> <!-- col-md-3 -->
+            </div>
 
             <div class="col-md-6 p-0">
               @yield('content')

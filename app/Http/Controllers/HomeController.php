@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User; // 管理者モード用に全ユーザー情報を取得したい。
 use App\Models\Memo;
 use App\Models\Tag;
 
@@ -30,7 +31,17 @@ class HomeController extends Controller
         // $memos = Memo::get();
         // dd($memos); // デバッグ用：$dataの中身を確認する。※実行処理も止まるので注意。
 
-        return view('create');
+        // 該当するIDのメモをデータベースから取得
+        $user = \Auth::user();
+        if ( $user['admin_code'] === 1 ) {
+            // 管理者ユーザーの場合、usersの全データを取得する。
+            $all_user = User::orderBy('id', 'ASC') -> get();
+            //取得したメモをViewに渡す
+            return view('create', compact('all_user'));
+        } else {
+            return view('create');
+        }
+
 
         // 以下のソースコードは、\app\Providers\AppServiceProvider\boot()の共通呼び出しにまとめました。
         // // ログインしているユーザー情報をViewに渡す
