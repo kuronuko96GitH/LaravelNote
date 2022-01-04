@@ -18,7 +18,9 @@
                     <label for="tag">タグ</label>
                     <input name='tag' type="text" class="form-control" id="tag" placeholder="タグを入力">
                 </div>
+            @if( $user['admin_code'] < 9 )
                 <button type='submit' class="btn btn-primary btn-lg">保存</button>
+            @endif
             </form>
         </div>
     </div>

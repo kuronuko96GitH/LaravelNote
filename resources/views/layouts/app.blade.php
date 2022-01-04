@@ -159,7 +159,9 @@
                     <div class="col-md-2 p-0">
                     </div>
                     <div class="col-md-5 p-0">
+                @if( $user['admin_code'] < 9 )
                         <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>新規作成
+                @endif
                     </div>
                 </div>
 

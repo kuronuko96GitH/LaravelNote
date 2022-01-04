@@ -55,6 +55,13 @@
                             <br>
                                 <input type="button" class="btn btn-secondary" value="ゲストアカウント" id="guest_button">
                             </div>
+                            
+                            <div class="col-md-8 offset-md-4">
+                            <br>
+                            ポートフォリオの説明を見たい場合は、『About Me』でログインして下さい。
+                            <br>
+                                <input type="button" class="btn btn-info" value="About Me" id="aboutme_button">
+                            </div>
                         </div>
                     </form>
                 </div>
