@@ -52,7 +52,7 @@
                     <!-- mr-auto は CSSのmargin-right: autoと同じ効果 -->
                     <ul class="navbar-nav mr-auto">
                         
-                    <form method="POST" action="http://localhost:8000/stylemode">
+                    <form method="POST" action="/stylemode">
                         @csrf
                         @if( $user['style_code'] === 1 )
                             <button type="submit" class="btn btn-info">通常モード</button>

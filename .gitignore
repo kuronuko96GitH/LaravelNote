@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
-/public/storage
+# 2022.01.05 イメージファイルを置くのに必要なので、今回はコメントアウトする。
+#/public/storage
 /storage/*.key
 /vendor
 .env
