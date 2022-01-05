@@ -30,8 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+
+    Route::post('/stylemode', [App\Http\Controllers\HomeController::class, 'stylemode'])->name('stylemode');
     
+    // ログイン・ログアウト用　処理後のリダイレクト先をhome→indexに設定
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // デバッグ用
     Route::get('/phpinfo', [App\Http\Controllers\HomeController::class, 'info'])->name('phpinfo');
     Route::get('/sqltest', [App\Http\Controllers\HomeController::class, 'sqltest'])->name('sqltest');
     Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');

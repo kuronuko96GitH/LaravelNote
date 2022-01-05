@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidateNote extends FormRequest
+class ValidateNoteUpd extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,9 +27,7 @@ class ValidateNote extends FormRequest
     public function rules()
     {
         return [
-//            'content' => 'required',
             'content' => 'required|max:255',
-//            'tag' => 'required|max:25',
         ];
     }
 
@@ -37,7 +35,6 @@ class ValidateNote extends FormRequest
     {
         return [
             'content' => 'メモ',
-            'tag' => 'タグ',
         ];
     }
 }

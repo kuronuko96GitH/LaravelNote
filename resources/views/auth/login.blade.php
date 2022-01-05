@@ -57,14 +57,39 @@
                             </div>
                             
                             <div class="col-md-8 offset-md-4">
-                            <br>
-                            ポートフォリオの説明を見たい場合は、『About Me』でログインして下さい。
-                            <br>
-                                <input type="button" class="btn btn-info" value="About Me" id="aboutme_button">
+                                <br>
+                                ポートフォリオの説明を見たい場合は、『About Me』でログインして下さい。
+                                <br>
+                                    <input type="button" class="btn btn-info" value="About Me" id="aboutme_button">
+                                    
+                                <br>
+                                <br>
                             </div>
                         </div>
                     </form>
                 </div>
+
+                <section class="bg-dark">
+                    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                        <div class="d-flex justify-content-center">
+                            
+                            <div class="text-center">
+                                <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+                                    <div class="card-body">
+                                        <br>
+
+                                        <div>『Laravel』で製作したWebアプリです。</div>
+                                        <div>↓GitHubで、ソースコードも公開しています。</div>
+                                        <div><i class="fab fa-github fa-2x"></i>  GitHub: <a href="https://github.com/kuronuko96GitH/LaravelNote" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/LaravelNote</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
             </div>
         </div>
     </div>

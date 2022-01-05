@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'SimpleNote') }}</title>
+    <link rel="icon" type="image/x-icon" href="/storage/favicon.ico" />
 
     <!-- Scripts -->
     <script src="{{ '/js/app.js' }}" defer></script>
@@ -22,12 +23,21 @@
     <!-- Styles -->
     <link href="{{ '/css/app.css' }}" rel="stylesheet">
     <link href="{{ '/css/utility.css' }}" rel="stylesheet">
+    @if( $user['style_code'] === 1 )
+    <!--    Bootstrap-Night の CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.2/dist/css/bootstrap-night.min.css" rel="stylesheet">
+    @endif
+
     @yield('css')
 </head>
 <body>
     <div id="app">
-<!--        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"> -->
+
+    @if( $user['style_code'] === 1 )
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+    @else
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    @endif
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -41,6 +51,15 @@
                     <!-- Left Side Of Navbar -->
                     <!-- mr-auto は CSSのmargin-right: autoと同じ効果 -->
                     <ul class="navbar-nav mr-auto">
+                        
+                    <form method="POST" action="http://localhost:8000/stylemode">
+                        @csrf
+                        @if( $user['style_code'] === 1 )
+                            <button type="submit" class="btn btn-info">通常モード</button>
+                        @else
+                            <button type="submit" class="btn btn-info">ダークモード</button>
+                        @endif
+                    </form>
 <!--
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -53,7 +72,7 @@
                                     </a>
                                 </div>
                             </li>
--->                
+-->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -107,9 +126,10 @@
         @endif
 <!--
             <div class="row" style='height: 92vh;'>
--->
             <div class="row" style='height: 90vh;'>
-            <!-- Bootstrap(col-md)により、2:4:6の割合で画面レイアウトを三分割しています -->
+-->
+            <div class="row" style='height: 88vh;'>
+            <!-- Bootstrap(col-md)により、2:4:6の割合で画面レイアウトを四分割しています -->
             <div class="col-md-2 p-0">
               <div class="card h-100">
                 <div class="card-header">タグ一覧
@@ -130,35 +150,14 @@
               </div>
             </div>
 
-            <div class="col-md-2 p-0">
+            <div class="col-md-4 p-0">
               <div class="card h-100">
-                <div class="card-header d-flex">
-                    <div class="col-md-10 p-0">メモの更新日
-                    </div>
-                    <div class="col-md-2 p-0">
-                    </div>
-                </div>
-
-                <div class="card-body p-2">
-            @foreach($memos as $memo)
-                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>【{{ $memo['updated_at']->timezone("JST")->format('Y/m/d H:i:s') }}】</a>
-            @endforeach
-                </div>
-              </div>    
-            </div>
-
-            <div class="col-md-2 p-0">
-              <div class="card h-100">
-<!--
-                <div class="card-header d-flex">メモ一覧 <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>
-                </div>
--->
                 <div class="card-header d-flex">
                     <div class="col-md-5 p-0">メモ一覧
                     </div>
-                    <div class="col-md-2 p-0">
-                    </div>
                     <div class="col-md-5 p-0">
+                    </div>
+                    <div class="col-md-2 p-0">
                 @if( $user['admin_code'] < 9 )
                         <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>新規作成
                 @endif
@@ -167,7 +166,7 @@
 
                 <div class="card-body p-2">
             @foreach($memos as $memo)
-                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 16) }}</a>
+                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 32) }}</a>
             @endforeach
                 </div>
               </div>    
@@ -176,6 +175,7 @@
             <div class="col-md-6 p-0">
               @yield('content')
             </div>
+
           </div> <!-- row justify-content-center -->
         </main>
     </div>

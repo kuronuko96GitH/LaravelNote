@@ -8,6 +8,7 @@ use App\Models\Memo;
 use App\Models\Tag;
 
 use App\Http\Requests\ValidateNote; // ノート画面の入力チェック処理を追加
+use App\Http\Requests\ValidateNoteUpd; // ノート画面の入力チェック処理を追加
 
 class HomeController extends Controller
 {
@@ -116,7 +117,7 @@ class HomeController extends Controller
     }
 
 //    public function update(Request $request, $id)
-    public function update(ValidateNote $request, $id) // App\Http\Requests\ValidateNoteで入力チェック
+    public function update(ValidateNoteUpd $request, $id) // App\Http\Requests\ValidateNoteUpdで入力チェック
     {
         // メモ編集の更新ボタン処理
         $inputs = $request->all();
@@ -136,6 +137,21 @@ class HomeController extends Controller
 
         // フラッシュメッセージ(※session情報に保持して、一度だけ画面に読み込んで表示させます。再読み込みでは消えるメッセージ)
         return redirect()->route('index')->with('success', 'メモの削除が完了しました。');
+    }
+
+   
+    public function stylemode(Request $request)
+    {
+        // 該当するIDのメモをデータベースから取得
+        $user = \Auth::user();
+        if ( $user['style_code'] === 0 ) {
+            // stylesheetの設定情報を、ナイトモードに変更する。
+            User::where('id', $user['id'])->update([ 'style_code' => 1 ]);
+        } else {
+            // stylesheetの設定情報を、通常モード（背景白）に変更する。
+            User::where('id', $user['id'])->update([ 'style_code' => 0 ]);
+        }
+        return redirect()->route('index');
     }
 
     public function info()
