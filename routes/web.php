@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
-
+    // cssの切り替え（通常モード、ダークモード）
     Route::post('/stylemode', [App\Http\Controllers\HomeController::class, 'stylemode'])->name('stylemode');
     
     // ログイン・ログアウト用　処理後のリダイレクト先をhome→indexに設定

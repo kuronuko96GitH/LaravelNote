@@ -141,7 +141,7 @@
                     <p class='d-block'>{{ $user['id'] }}, {{ $user['name'] }}, {{ $user['admin_code'] }}, {{ $user['email'] }}</p>
             @endforeach
         @else
-                    <a class='d-block' href='/'>全て表示</a>
+                    <a class='d-block' href='/?tag=all'>全て表示</a>
             @foreach($tags as $tag)
                     <a href="/?tag={{ $tag['name'] }}" class='d-block'>{{ $tag['name'] }}</a>
             @endforeach

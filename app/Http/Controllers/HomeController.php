@@ -56,6 +56,10 @@ class HomeController extends Controller
 
     public function create()
     {
+        // セッション情報からタグ一覧の絞り込み用keyを削除する。
+        // タグ一覧の「全て表示」をクリックした時と同じ状態にする。
+        session()->forget('tag');
+
         // 新規メモ作成画面の呼び出し処理
         return view('create');
 
@@ -107,11 +111,11 @@ class HomeController extends Controller
 
     public function edit($id)
     {
+        //dd($memo);
         // 該当するIDのメモをデータベースから取得
         $user = \Auth::user();
         $memo = Memo::where('status', 1)->where('id', $id)->where('user_id', $user['id'])
           ->first(); // 条件に該当したデータの一行目を取得する。
-        //   dd($memo);
         //取得したメモをViewに渡す
         return view('edit',compact('memo'));
     }
