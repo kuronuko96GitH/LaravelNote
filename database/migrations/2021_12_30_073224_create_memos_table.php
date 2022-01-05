@@ -18,7 +18,7 @@ class CreateMemosTable extends Migration
             $table->longText('content');
             $table->integer('user_id');
             $table->integer('tag_id');
-            $table->integer('status')->defalut('1');
+            $table->integer('status_code')->defalut('1');
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
 //            $table->timestamp('updated_at');

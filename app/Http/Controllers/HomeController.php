@@ -49,7 +49,7 @@ class HomeController extends Controller
         // $user = \Auth::user();        
         // // メモ一覧の取得
         // //（ASC=昇順、DESC=降順）
-        // $memos = Memo::where('user_id', $user['id']) -> where('status', 1) -> orderBy('updated_at', 'DESC') -> get();
+        // $memos = Memo::where('user_id', $user['id']) -> where('status_code', 1) -> orderBy('updated_at', 'DESC') -> get();
         // return view('create', compact('user', 'memos'));        
     }
     
@@ -67,7 +67,7 @@ class HomeController extends Controller
         // // ログインしているユーザー情報をViewに渡す
         // $user = \Auth::user();
         // // // メモ一覧の取得
-        // $memos = Memo::where('user_id', $user['id']) -> where('status', 1) -> orderBy('updated_at', 'DESC') -> get();
+        // $memos = Memo::where('user_id', $user['id']) -> where('status_code', 1) -> orderBy('updated_at', 'DESC') -> get();
         // //取得したメモをViewに渡す
         // return view('create', compact('user', 'memos'));
 
@@ -102,7 +102,7 @@ class HomeController extends Controller
             'content' => $data['content'],
              'user_id' => $data['user_id'], 
              'tag_id' => $tag_id,
-             'status' => 1
+             'status_code' => 1
         ]);
 
         // リダイレクト処理
@@ -114,7 +114,7 @@ class HomeController extends Controller
         //dd($memo);
         // 該当するIDのメモをデータベースから取得
         $user = \Auth::user();
-        $memo = Memo::where('status', 1)->where('id', $id)->where('user_id', $user['id'])
+        $memo = Memo::where('status_code', 1)->where('id', $id)->where('user_id', $user['id'])
           ->first(); // 条件に該当したデータの一行目を取得する。
         //取得したメモをViewに渡す
         return view('edit',compact('memo'));
@@ -134,8 +134,8 @@ class HomeController extends Controller
     {
         $inputs = $request->all();
         // dd($inputs);
-        // 論理削除なので、status=2
-        Memo::where('id', $id)->update([ 'status' => 2 ]);
+        // 論理削除なので、status_code=2
+        Memo::where('id', $id)->update([ 'status_code' => 2 ]);
         // ↓は物理削除
         // Memo::where('id', $id)->delete();
 

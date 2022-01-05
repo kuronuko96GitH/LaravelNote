@@ -18,9 +18,16 @@
         <div class="card-body">
             <!-- About me用の画像ファイルの表示　※コード固定【暫定版】 -->
             @if( $user['admin_code'] <= 9 )
-               @if( $memo['id'] === 4 )
-                   <img src="/storage/CustomizeList.png" class='w-100 mb-3'/>
-               @elseif( $memo['id'] === 2 )
+                @if( $memo['id'] === 9 )
+                   <img src="/storage/TableLayout_users.png" class='w-100 mb-3'/>
+                @elseif( $memo['id'] === 8 )
+                    <img src="/storage/TableLayout_memos.png" class='w-100 mb-3'/>
+                @elseif( $memo['id'] === 7 )
+                    <img src="/storage/TableLayout_tags.png" class='w-100 mb-3'/>
+                @elseif( $memo['id'] === 6 )
+                    <img src="/storage/CustomizeList.png" class='w-100 mb-3'/>
+                                           
+                @elseif( $memo['id'] === 2 )
                    <img src="/storage/portfolio02.png" class='w-100 mb-3'/>
                                            
                    <div class="text-center">
@@ -34,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-               @elseif( $memo['id'] === 1 )
+                @elseif( $memo['id'] === 1 )
                     <img src="/storage/portfolio01.png" class='w-100 mb-3'/>
                         
                     <div class="text-center">
@@ -48,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-               @endif
+                @endif
             @endif
 
 

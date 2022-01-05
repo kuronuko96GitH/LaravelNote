@@ -26,18 +26,18 @@
 
 # 開発環境
 ◆開発言語・環境
-* docker(ローカル・開発用の仮想環境)
-* 
+* docker(ローカル開発用の仮想環境)
+
 * PHP(7.4)
 * Laravel(8.77.1)
 *（※LaravelはPHPのフレームワークです）
 * JavaScript
 * Composer(2.1.8)
 *（※ComposerはPHPのパッケージ管理システムです）
-* 
+
 * Apache（Webサーバソフトウェア）
 * PostgreSQL (ローカル・本番環境データベース)
-* 
+
 * GitHub (ソースコード管理)
 * SourceTree (ソースコード管理)
 * Visual Studio Code (ソースコードエディタ)

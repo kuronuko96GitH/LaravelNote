@@ -30,7 +30,7 @@ class Memo extends Model
         // タグがなければ、その人が持っているメモを全て取得
 //        if(empty($tag)){
         if($tag === 'all'){
-            return $this::select('memos.*')->where('user_id', $user_id)->where('status', 1)
+            return $this::select('memos.*')->where('user_id', $user_id)->where('status_code', 1)
             ->orderBy('memos.id', 'DESC')->get();
 //                ->orderBy('updated_at', 'DESC')->get();
         }else{
@@ -40,7 +40,7 @@ class Memo extends Model
                 ->where('tags.name', $tag)
                 ->where('tags.user_id', $user_id)
                 ->where('memos.user_id', $user_id)
-                ->where('status', 1)
+                ->where('status_code', 1)
                 ->orderBy('memos.id', 'DESC')
 //                ->orderBy('updated_at', 'DESC')
                 ->get();
