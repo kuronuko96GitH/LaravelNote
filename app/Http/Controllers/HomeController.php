@@ -56,6 +56,7 @@ class HomeController extends Controller
 
     public function create()
     {
+        // 新規作成画面表示ボタンを押した時は、
         // セッション情報からタグ一覧の絞り込み用keyを削除する。
         // タグ一覧の「全て表示」をクリックした時と同じ状態にする。
         session()->forget('tag');
@@ -104,6 +105,11 @@ class HomeController extends Controller
              'tag_id' => $tag_id,
              'status_code' => 1
         ]);
+
+        // 新規作成処理を押した時は、
+        // セッション情報からタグ一覧の絞り込み用keyを削除する。
+        // タグ一覧の「全て表示」をクリックした時と同じ状態にする。
+        session()->forget('tag');
 
         // リダイレクト処理
         return redirect()->route('index');

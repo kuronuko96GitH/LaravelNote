@@ -15,9 +15,11 @@ class Memo extends Model
             // タグ一覧がクリックされてない時
             // かつ　セッション情報にあるtagがnullの場合
             $tag = 'all';
+
         } else if($tag === 'all'){
             // タグ一覧で「全て表示」を選択していた場合
             session()->forget('tag'); // セッション情報からタグ一覧の絞り込み用keyを削除する。
+
         } else if(!empty($tag)) {
             // タグ一覧で、どれかを選択していた場合
 

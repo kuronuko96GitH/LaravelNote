@@ -48,35 +48,10 @@
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <!-- justify-content-end 右寄せ -->
+
                     <!-- Left Side Of Navbar -->
                     <!-- mr-auto は CSSのmargin-right: autoと同じ効果 -->
                     <ul class="navbar-nav mr-auto">
-                        
-                    <form method="POST" action="/stylemode">
-                        @csrf
-                        @if( $user['style_code'] === 1 )
-                            <button type="submit" class="btn btn-info">通常モード</button>
-                        @else
-                            <button type="submit" class="btn btn-info">ダークモード</button>
-                        @endif
-                    </form>
-<!--
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    About Me
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href='/create'>
-                                    {{ Auth::user()->name }}
-                                    </a>
-                                </div>
-                            </li>
--->
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -107,6 +82,19 @@
                             </li>
                         @endguest
                     </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <form method="POST" action="/stylemode">
+                            @csrf
+                            @if( $user['style_code'] === 1 )
+                                <button type="submit" class="btn btn-info">通常モード</button>
+                            @else
+                                <button type="submit" class="btn btn-info">ダークモード</button>
+                            @endif
+                        </form>
+                    </ul>
+
                 </div>
             </div>
         </nav>
@@ -129,25 +117,8 @@
             <div class="row" style='height: 90vh;'>
 -->
             <div class="row" style='height: 88vh;'>
-            <!-- Bootstrap(col-md)により、2:4:6の割合で画面レイアウトを四分割しています -->
-            <div class="col-md-2 p-0">
-              <div class="card h-100">
-                <div class="card-header">タグ一覧
-                </div>
-                <div class="card-body py-2 px-4">
-        @if( $user['admin_code'] === 1 )
-                    <a class='d-block' href='/'>userテーブル<br>(id, name, admin_code, email)</a>
-            @foreach($all_user as $user)
-                    <p class='d-block'>{{ $user['id'] }}, {{ $user['name'] }}, {{ $user['admin_code'] }}, {{ $user['email'] }}</p>
-            @endforeach
-        @else
-                    <a class='d-block' href='/?tag=all'>全て表示</a>
-            @foreach($tags as $tag)
-                    <a href="/?tag={{ $tag['name'] }}" class='d-block'>{{ $tag['name'] }}</a>
-            @endforeach
-        @endif
-                </div>
-              </div>
+            <!-- Bootstrap(col-md)により、1:4:6:1の割合で画面レイアウトを四分割しています -->
+            <div class="col-md-1 p-0">
             </div>
 
             <div class="col-md-4 p-0">
@@ -165,15 +136,50 @@
                 </div>
 
                 <div class="card-body p-2">
-            @foreach($memos as $memo)
-                  <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 32) }}</a>
-            @endforeach
+            @if( !empty(session()->get('tag'))  )
+                タグ選択：
+                <div class="form-group">
+                    <select class='form-control' name='menu_tag_id' onchange="blur(); location.href = options[this.selectedIndex].value;">
+                        <option value="/?tag=all">全て表示</option>
+                @foreach($tags as $tag)
+                        <option value="/?tag={{ $tag['name'] }}" {{ $tag['name'] == (session()->get('tag')) ? "selected" : "" }}>{{$tag['name']}}</option>
+                @endforeach
+                    </select>
+                </div>
+            @else
+                タグ選択：
+                <div class="form-group">
+                    <select class='form-control' name='menu_tag_id' onchange="blur(); location.href = options[this.selectedIndex].value;">
+                        <option value="/?tag=all">全て表示</option>
+                @foreach($tags as $tag)
+                        <option value="/?tag={{ $tag['name'] }}">{{$tag['name']}}</option>
+                @endforeach
+                    </select>
+                </div>
+            @endif
+            <br>
+
+            @if( $user['admin_code'] === 1 )
+                    <p class='d-block'>userテーブル
+                        <br>【id, name, admin_code, email】
+                    </p>
+                @foreach($all_user as $user)
+                    <p class='d-block'>{{ $user['id'] }}, {{ $user['name'] }}, {{ $user['admin_code'] }}, {{ $user['email'] }}</p>
+                @endforeach
+            @else
+                @foreach($memos as $memo)
+                    <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 32) }}</a>
+                @endforeach
+            @endif
                 </div>
               </div>    
             </div>
 
             <div class="col-md-6 p-0">
               @yield('content')
+            </div>
+
+            <div class="col-md-1 p-0">
             </div>
 
           </div> <!-- row justify-content-center -->
