@@ -60,6 +60,7 @@
                 <br>
 
                 <div class="form-group">
+                    <label for="tag_id">タグ</label>
                     <select class='form-control' name='tag_id'>
                 @foreach($tags as $tag)
                     <option value="{{ $tag['id'] }}" {{ $tag['id'] == $memo['tag_id'] ? "selected" : "" }}>{{$tag['name']}}</option>
