@@ -130,14 +130,14 @@
                     </div>
                     <div class="col-md-2 p-0">
                 @if( $user['admin_code'] < 9 )
-                        <a class='ml-auto' href='/create'><i class="fas fa-plus-circle"></i></a>新規作成
+                        <a class='ml-auto' href='/create'><i class="fas fa-plus-square"></i></a><a href="/create">新規作成</a>
                 @endif
                     </div>
                 </div>
 
                 <div class="card-body p-2">
             @if( !empty(session()->get('tag'))  )
-                タグ選択：
+                タグ選択：<a class='ml-auto' href="/tagedit/{{ (session()->get('tag')) }}"><i class="fas fa-edit"></i></a><a href="/tagedit/{{ (session()->get('tag')) }}">タグ編集</a>
                 <div class="form-group">
                     <select class='form-control' name='menu_tag_id' onchange="blur(); location.href = options[this.selectedIndex].value;">
                         <option value="/?tag=all">全て表示</option>

@@ -9,6 +9,7 @@ use App\Models\Tag;
 
 use App\Http\Requests\ValidateNote; // ノート画面の入力チェック処理を追加
 use App\Http\Requests\ValidateNoteUpd; // ノート画面の入力チェック処理を追加
+use App\Http\Requests\ValidateNoteTagUpd; // タグ編集画面の入力チェック処理を追加
 
 class HomeController extends Controller
 {
@@ -84,16 +85,16 @@ class HomeController extends Controller
         // POSTされたデータをDB（memosテーブル、tagsテーブル）に新規追加
         // MEMOモデルにDBへ保存する命令を出す
 
-        if ( empty($data['tag']) ) {
+        if ( empty($data['tagcontent']) ) {
             //タグデータが入力されてない場合。
-            $data['tag'] = 'NoTag';
+            $data['tagcontent'] = 'NoTag';
         } 
 
         // 同じタグがあるか確認
-        $exist_tag = Tag::where('name', $data['tag'])->where('user_id', $data['user_id'])->first();
+        $exist_tag = Tag::where('name', $data['tagcontent'])->where('user_id', $data['user_id'])->first();
         if( empty($exist_tag['id']) ){
             //新規タグの場合は、タグ情報をtagsテーブルへ新規登録
-            $tag_id = Tag::insertGetId(['name' => $data['tag'], 'user_id' => $data['user_id']]);
+            $tag_id = Tag::insertGetId(['name' => $data['tagcontent'], 'user_id' => $data['user_id']]);
         }else{
             $tag_id = $exist_tag['id'];
         }
@@ -149,7 +150,31 @@ class HomeController extends Controller
         return redirect()->route('index')->with('success', 'メモの削除が完了しました。');
     }
 
+    public function tagedit($seltagname)
+    {
+        //dd($memo);
+        // 該当するIDのメモをデータベースから取得
+        $user = \Auth::user();
+        $seltag = Tag::where('name', $seltagname)->where('user_id', $user['id'])
+          ->first(); // 条件に該当したデータの一行目を取得する。
+        //取得したメモをViewに渡す
+        return view('tagedit',compact('seltag'));
+    }
    
+    public function tagupdate(ValidateNoteTagUpd $request, $id) // App\Http\Requests\ValidateNoteTagUpdで入力チェック
+    {
+        // タグ編集の更新ボタン処理
+        $inputs = $request->all();
+
+        // dd($inputs);
+        Tag::where('id', $id)->update(['name' => $inputs['tagcontent'] ]);
+
+        // 更新されたタグ情報を、セッション情報にも保持しておく
+        session()->put('tag', $inputs['tagcontent']);
+
+        return redirect()->route('index');
+    }
+
     public function stylemode(Request $request)
     {
         // 該当するIDのメモをデータベースから取得

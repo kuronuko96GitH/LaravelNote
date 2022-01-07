@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidateNote extends FormRequest
+class ValidateNoteTagUpd extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,17 +27,15 @@ class ValidateNote extends FormRequest
     public function rules()
     {
         return [
-//            'content' => 'required',
-            'content' => 'required|max:255',
-            'tagcontent' => 'max:30',
+            'tagcontent' => 'required|max:30|unique:tags,name',
         ];
     }
 
     public function attributes()
     {
         return [
-            'content' => 'メモ',
             'tagcontent' => 'タグ',
+//            'tagcontent.unique' => 'そのタグは既に登録されています。',
         ];
     }
 }
