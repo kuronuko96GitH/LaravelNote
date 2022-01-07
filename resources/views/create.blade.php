@@ -14,11 +14,14 @@
                 <div class="form-group">
                      <textarea name='content' class="form-control"rows="10"></textarea>
                 </div>
+
+                <br>
                 <div class="form-group">
                     <label for="tagcontent">タグ</label>
                     <input name='tagcontent' type="text" class="form-control" id="tagcontent" placeholder="タグを入力（最大３０文字まで入力できます）">
                 </div>
             @if( $user['admin_code'] < 9 )
+                <br>
                 <button type='submit' class="btn btn-primary btn-lg">保存</button>
             @endif
             </form>

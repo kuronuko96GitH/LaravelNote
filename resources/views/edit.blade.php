@@ -56,6 +56,9 @@
                 <div class="form-group">
                     <textarea name='content' class="form-control"rows="10">{{ $memo['content'] }}</textarea>
                 </div>
+                
+                <br>
+
                 <div class="form-group">
                     <select class='form-control' name='tag_id'>
                 @foreach($tags as $tag)
@@ -64,6 +67,7 @@
                     </select>
                 </div>
             @if( $user['admin_code'] < 9 )
+                <br>
                 <button type='submit' class="btn btn-primary btn-lg">更新</button>
             @endif
             </form>
