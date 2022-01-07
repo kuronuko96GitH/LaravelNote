@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ValidateNoteTagUpd extends FormRequest
 {
@@ -26,8 +27,11 @@ class ValidateNoteTagUpd extends FormRequest
      */
     public function rules()
     {
+        // ログインユーザー情報
+        $user = \Auth::user();
         return [
-            'tagcontent' => 'required|max:30|unique:tags,name',
+                'tagcontent' => ['required', 'max:30', Rule::unique('tags','name')->where('user_id', $user['id'])],
+            // 'tagcontent' => 'required|max:30|unique:tags,name',
         ];
     }
 
