@@ -27,7 +27,7 @@
                 <br>
 
                 <div class="form-group">
-                    <label for="tagcontent">編集中のタグ：{{ $seltag['name'] }}</label>
+                    <label for="tagcontent">編集中のタグ『{{ $seltag['name'] }}』</label>
                     <input name='tagcontent' type="text" class="form-control" id="tagcontent" placeholder="タグを入力（最大３０文字まで入力できます）">
                 </div>
             @if( $user['admin_code'] < 9 )

@@ -58,7 +58,8 @@
                             
                             <div class="col-md-8 offset-md-4">
                                 <br>
-                                ポートフォリオの説明を見たい場合は、『About Me』でログインして下さい。
+                                開発ドキュメント（テーブル定義書、単体テスト）や
+                                <br>ポートフォリオの説明を見たい場合は、『About Me』でログインして下さい。
                                 <br>
                                     <input type="button" class="btn btn-info" value="About Me" id="aboutme_button">
                                     

@@ -11,16 +11,20 @@
         </div>
         <div class="card-body">
         <!-- About me用の画像ファイルの表示　※memo_id（コード固定【暫定版】） -->
-        @if( $memo['id'] === 9 )
+        @if( $memo['id'] === 10 )
             <img src="/storage/TableLayout_users.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 8 )
+        @elseif( $memo['id'] === 9 )
             <img src="/storage/TableLayout_memos.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 7 )
+        @elseif( $memo['id'] === 8 )
             <img src="/storage/TableLayout_tags.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 6 )
+        @elseif( $memo['id'] === 7 )
             <img src="/storage/CustomizeList.png" class='w-100 mb-3'/>
+        @elseif( $memo['id'] === 6 )
+            <img src="/storage/Pcl01.png" class='w-100 mb-3'/>
+            @elseif( $memo['id'] === 5 )
+            <img src="/storage/Pcl02.png" class='w-100 mb-3'/>
                                     
-        @elseif( $memo['id'] === 2 )
+        @elseif( $memo['id'] === 3 )
             <img src="/storage/portfolio02.jpg" class='w-100 mb-3'/>
                                     
             <div class="text-center">
@@ -34,7 +38,7 @@
                     </div>
                 </div>
             </div>
-        @elseif( $memo['id'] === 1 )
+        @elseif( $memo['id'] === 2 )
             <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
                 
             <div class="text-center">
@@ -60,7 +64,7 @@
                 <br>
 
                 <div class="form-group">
-                    <label for="tag_id">タグ</label>
+                    <label for="tag_id">タグ【選択】</label>
                     <select class='form-control' name='tag_id'>
                 @foreach($tags as $tag)
                     <option value="{{ $tag['id'] }}" {{ $tag['id'] == $memo['tag_id'] ? "selected" : "" }}>{{$tag['name']}}</option>
@@ -77,7 +81,7 @@
             <form method='POST' action="/delete/{{$memo['id']}}" id='delete-form'>
                         @csrf
                         @if( $user['admin_code'] < 9 )
-                            <button class='p-0 mr-2' style='border:none;'><i id='delete-button' class="fas fa-trash-alt fa-3x"></i></button>メモの削除
+                            <button class='p-0 mr-2' style='border:none;'><i id='delete-button' class="fas fa-trash-alt fa-3x"></i></button> メモの削除
                         @endif
             </form>
         </div>

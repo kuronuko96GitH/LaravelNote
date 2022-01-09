@@ -137,7 +137,11 @@
 
                 <div class="card-body p-2">
             @if( !empty(session()->get('tag'))  )
-                タグ選択：<a class='ml-auto' href="/tagedit/{{ (session()->get('tag')) }}"><i class="fas fa-edit"></i></a><a href="/tagedit/{{ (session()->get('tag')) }}">タグ編集</a>
+                @if( $user['admin_code'] < 9 )
+                    タグ選択：<a class='ml-auto' href="/tagedit/{{ (session()->get('tag')) }}"><i class="fas fa-edit"></i></a><a href="/tagedit/{{ (session()->get('tag')) }}">タグ編集</a>
+                @else
+                    タグ選択：
+                @endif
                 <div class="form-group">
                     <select class='form-control' name='menu_tag_id' onchange="blur(); location.href = options[this.selectedIndex].value;">
                         <option value="/?tag=all">全て表示</option>
@@ -160,11 +164,11 @@
             <br>
 
             @if( $user['admin_code'] === 1 )
-                    <p class='d-block'>userテーブル
-                        <br>【id, name, admin_code, email】
+                    <p class='d-block'>『users』テーブル
+                        <br>【id, name, admin_code, email, updated_at】
                     </p>
                 @foreach($all_user as $user)
-                    <p class='d-block'>{{ $user['id'] }}, {{ $user['name'] }}, {{ $user['admin_code'] }}, {{ $user['email'] }}</p>
+                    <p class='d-block'>{{ $user['id'] }}, {{ $user['name'] }}, {{ $user['admin_code'] }}, {{ $user['email'] }}, {{ $user['updated_at']->timezone("JST")->format('Y/m/d H:i:s') }}</p>
                 @endforeach
             @else
                 @foreach($memos as $memo)
