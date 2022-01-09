@@ -30,10 +30,10 @@
 
 * PHP(7.4)
 * Laravel(8.77.1)
-*（※LaravelはPHPのフレームワークです）
+* (※LaravelはPHPのフレームワークです)
 * JavaScript
 * Composer(2.1.8)
-*（※ComposerはPHPのパッケージ管理システムです）
+* (※ComposerはPHPのパッケージ管理システムです)
 
 * Apache（Webサーバソフトウェア）
 * PostgreSQL (ローカル・本番環境データベース)
