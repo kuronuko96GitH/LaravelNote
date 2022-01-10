@@ -6,7 +6,7 @@
 # 本番環境（Heroku）
 * 公開URL：https://kuronuko9646laravelnote.herokuapp.com
 
-　※実際に動作するゲームが遊べます。
+　※実際に動作するWebアプリのノートが使えます。
 
 # システムエンジニア経歴
 ◆全てWindowsでの開発です。
