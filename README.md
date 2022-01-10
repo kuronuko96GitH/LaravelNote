@@ -34,6 +34,8 @@
 * JavaScript
 * Composer(2.1.8)
 * (※ComposerはPHPのパッケージ管理システムです)
+* Bootstrap(5.1.3)
+* (※デザインテンプレートとして使用)
 *
 * Apache（Webサーバソフトウェア）
 * PostgreSQL (ローカル・本番環境データベース)
