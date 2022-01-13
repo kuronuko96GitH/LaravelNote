@@ -183,7 +183,7 @@
                 @endforeach
             @else
                 @foreach($memos as $memo)
-                    <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 32) }}</a>
+                    <a href="/edit/{{ $memo['id'] }}" class='d-block'>{{ Str::substr($memo['content'], 0, 30) }}</a>
                 @endforeach
             @endif
                 </div>
