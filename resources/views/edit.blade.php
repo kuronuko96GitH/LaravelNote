@@ -11,20 +11,20 @@
         </div>
         <div class="card-body">
         <!-- About me用の画像ファイルの表示　※memo_id（コード固定【暫定版】） -->
-        @if( $memo['id'] === 10 )
+        @if( $memo['id'] === 20 )
             <img src="/storage/TableLayout_users.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 9 )
+        @elseif( $memo['id'] === 19 )
             <img src="/storage/TableLayout_memos.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 8 )
+        @elseif( $memo['id'] === 18 )
             <img src="/storage/TableLayout_tags.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 7 )
+        @elseif( $memo['id'] === 17 )
             <img src="/storage/CustomizeList.png" class='w-100 mb-3'/>
-        @elseif( $memo['id'] === 6 )
+        @elseif( $memo['id'] === 16 )
             <img src="/storage/Pcl01.png" class='w-100 mb-3'/>
-            @elseif( $memo['id'] === 5 )
+        @elseif( $memo['id'] === 15 )
             <img src="/storage/Pcl02.png" class='w-100 mb-3'/>
                                     
-        @elseif( $memo['id'] === 3 )
+        @elseif( $memo['id'] === 13 )
             <img src="/storage/portfolio02.jpg" class='w-100 mb-3'/>
                                     
             <div class="text-center">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-        @elseif( $memo['id'] === 2 )
+        @elseif( $memo['id'] === 12 )
             <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
                 
             <div class="text-center">
@@ -52,6 +52,37 @@
                     </div>
                 </div>
             </div>
+
+        @elseif( $memo['id'] === 11 )
+<!--
+            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+-->
+        @elseif( $memo['id'] === 10 )
+<!--
+            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+-->
+        @elseif( $memo['id'] === 9 )
+<!--
+            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+-->
+        @elseif( $memo['id'] === 8 )
+<!--
+            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+-->
+        @elseif( $memo['id'] === 7 )
+<!--
+            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+-->
+        @elseif( $memo['id'] === 5 )
+            <img src="/storage/VB01.png" class='w-100 mb-3'/>
+        @elseif( $memo['id'] === 4 )
+            <img src="/storage/VB02.png" class='w-100 mb-3'/>
+        @elseif( $memo['id'] === 3 )
+            <img src="/storage/VB03.png" class='w-100 mb-3'/>
+        @elseif( $memo['id'] === 2 )
+            <img src="/storage/VB04.png" class='w-100 mb-3'/>
+        @elseif( $memo['id'] === 1 )
+            <img src="/storage/VB05.png" class='w-100 mb-3'/>
         @endif
 
             <form method='POST' action="{{ route('update', ['id' => $memo['id'] ] ) }}">
