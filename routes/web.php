@@ -32,11 +32,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
     Route::get('/tagedit/{id}', [App\Http\Controllers\HomeController::class, 'tagedit'])->name('tagedit');
     Route::post('/tagupdate/{id}', [App\Http\Controllers\HomeController::class, 'tagupdate'])->name('tagupdate');
-    // cssの切り替え（通常モード、ダークモード）
-    Route::post('/stylemode', [App\Http\Controllers\HomeController::class, 'stylemode'])->name('stylemode');
-    
+
     // ログイン・ログアウト用　処理後のリダイレクト先をhome→indexに設定
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // cssの切り替え（通常モード、ダークモード）
+    Route::post('/stylemode', [App\Http\Controllers\HomeController::class, 'stylemode'])->name('stylemode');
+
+    // (Vue.js)のテスト用
+    Route::get('/VueTest', [App\Http\Controllers\HomeController::class, 'viewtest'])->name('VueTest');
+
     // デバッグ用
     Route::get('/phpinfo', [App\Http\Controllers\HomeController::class, 'info'])->name('phpinfo');
     Route::get('/sqltest', [App\Http\Controllers\HomeController::class, 'sqltest'])->name('sqltest');

@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ '/js/app.js' }}" defer></script>
+<!--    <script src="{{ '/js/VueTest.js' }}" defer></script>-->
     @yield('js')
 
     <!-- Fonts -->
@@ -78,7 +79,17 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                            @if( $user['admin_code'] === 1 )
+                                    <a class="dropdown-item" href="{{ route('VueTest') }}">
+                                        {{ __('VueTest') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('phpinfo') }}">
+                                        {{ __('phpinfo') }}
+                                    </a>
+                            @endif
                                 </div>
+
                             </li>
                         @endguest
                     </ul>
@@ -126,11 +137,11 @@
                 <div class="card-header d-flex">
                     <div class="col-md-5 p-0">メモ一覧
                     </div>
-                    <div class="col-md-5 p-0">
+                    <div class="col-md-4 p-0">
                     </div>
-                    <div class="col-md-2 p-0">
+                    <div class="col-md-3 p-0">
                 @if( $user['admin_code'] < 9 )
-                        <a class='ml-auto' href='/create'><i class="fas fa-plus-square"></i></a><a href="/create">新規作成</a>
+                        <a class='ml-auto' href='/create'><i class="fas fa-plus-square"></i></a><a href="/create">新規メモ作成</a>
                 @endif
                     </div>
                 </div>
