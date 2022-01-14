@@ -73,6 +73,18 @@
 <!--
             <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
 -->
+        @elseif( $memo['id'] === 6 )
+            <div class="text-center">
+                <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
+                    <div class="card-body">
+                        <div>実際に開発したソースコードは、こちらで公開してます。
+                        </div>
+                        <!-- icon add cdn fontawesome free-->
+                        <div><i class="fab fa-github fa-2x"></i>  GitHub（公開ソースコード）: <a href="https://github.com/kuronuko96GitH/WinAppTStamp" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/WinAppTStamp</a></div>
+                    </div>
+                </div>
+            </div>
+
         @elseif( $memo['id'] === 5 )
             <img src="/storage/VB01.png" class='w-100 mb-3'/>
         @elseif( $memo['id'] === 4 )
