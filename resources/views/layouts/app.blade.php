@@ -12,7 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ '/js/app.js' }}" defer></script>
-<!--    <script src="{{ '/js/VueTest.js' }}" defer></script>-->
+    <script src="{{ '/js/VueTest.js' }}" defer></script>
     @yield('js')
 
     <!-- Fonts -->
@@ -81,6 +81,8 @@
                                     </form>
 
                             @if( $user['admin_code'] === 1 )
+                            <!-- 管理者ユーザーで表示しようとすると、ユーザーデータしかないのでエラーになります。 -->
+                            <!-- ↑上記のif文を↓下側に変更して、管理者以外のユーザーで『VueTest』をテストして下さい -->
                                     <a class="dropdown-item" href="{{ route('VueTest') }}">
                                         {{ __('VueTest') }}
                                     </a>

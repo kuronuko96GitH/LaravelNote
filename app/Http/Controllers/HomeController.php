@@ -189,6 +189,12 @@ class HomeController extends Controller
         return redirect()->route('index');
     }
 
+    public function viewtest()
+    {
+        // (Vue.js)のテスト用
+        return view('VueTest');
+    }
+
     public function info()
     {
         // デバッグ用
