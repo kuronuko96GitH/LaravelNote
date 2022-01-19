@@ -58,8 +58,8 @@
                             
                             <div class="col-md-8 offset-md-4">
                                 <br>
-                                開発ドキュメント（テーブル定義書、単体テストなど）を見たい場合は、
-                                <br>『About Me』でログインして下さい。
+                                開発ドキュメント（テーブル定義書、単体テストなど）を
+                                <br>見たい場合は、『About Me』でログインして下さい。
                                 <br>
                                     <input type="button" class="btn btn-success" value="About Me" id="aboutme_button">                                    
                                 <br>
@@ -67,8 +67,8 @@
 
                             <div class="col-md-8 offset-md-4">
                                 <br>
-                                『VB.NET』『PHP』『Ruby』など、他の言語で開発した
-                                <br>ポートフォリオを見たい場合は、『他のポートフォリオ』でログインして下さい。
+                                『VB.NET』『PHP』『Ruby』など、他言語で開発したアプリを
+                                <br>見たい場合は、『他のポートフォリオ』でログインして下さい。
                                 <br>
                                     <input type="button" class="btn btn-info" value="他のポートフォリオ" id="link_button">                                    
                                 <br>
