@@ -51,21 +51,29 @@
 
                             <div class="col-md-8 offset-md-4">
                             <br>
-                            ゲスト(guest)で、ログインすることもできます。
+                            『ゲスト(guest)』で、ログインすることもできます。
                             <br>
                                 <input type="button" class="btn btn-secondary" value="ゲストアカウント" id="guest_button">
                             </div>
                             
                             <div class="col-md-8 offset-md-4">
                                 <br>
-                                開発ドキュメント（テーブル定義書、単体テスト）や
-                                <br>ポートフォリオの説明を見たい場合は、『About Me』でログインして下さい。
+                                開発ドキュメント（テーブル定義書、単体テストなど）を見たい場合は、
+                                <br>『About Me』でログインして下さい。
                                 <br>
-                                    <input type="button" class="btn btn-info" value="About Me" id="aboutme_button">
-                                    
-                                <br>
+                                    <input type="button" class="btn btn-success" value="About Me" id="aboutme_button">                                    
                                 <br>
                             </div>
+
+                            <div class="col-md-8 offset-md-4">
+                                <br>
+                                『VB.NET』『PHP』『Ruby』など、他の言語で開発した
+                                <br>ポートフォリオを見たい場合は、『他のポートフォリオ』でログインして下さい。
+                                <br>
+                                    <input type="button" class="btn btn-info" value="他のポートフォリオ" id="link_button">                                    
+                                <br>
+                            </div>
+
                         </div>
                     </form>
                 </div>

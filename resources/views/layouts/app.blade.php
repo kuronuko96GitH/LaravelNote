@@ -142,7 +142,7 @@
                     <div class="col-md-4 p-0">
                     </div>
                     <div class="col-md-3 p-0">
-                @if( $user['admin_code'] < 9 )
+                @if( $user['admin_code'] <= 7 )
                         <a class='ml-auto' href='/create'><i class="fas fa-plus-square"></i></a><a href="/create">新規メモ作成</a>
                 @endif
                     </div>
@@ -150,7 +150,7 @@
 
                 <div class="card-body p-2">
             @if( !empty(session()->get('tag'))  )
-                @if( $user['admin_code'] < 9 )
+                @if( $user['admin_code'] <= 7 )
                     タグ選択：<a class='ml-auto' href="/tagedit/{{ (session()->get('tag')) }}"><i class="fas fa-edit"></i></a><a href="/tagedit/{{ (session()->get('tag')) }}">タグ編集</a>
                 @else
                     タグ選択：

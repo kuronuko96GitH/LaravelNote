@@ -3,6 +3,7 @@
 
   const $btnGuest = $doc.getElementById('guest_button');
   const $btnAboutMe = $doc.getElementById('aboutme_button');
+  const $btnLink = $doc.getElementById('link_button');
 
   const $txtEmail = $doc.getElementById('email');
   const $txtPassword = $doc.getElementById('password');
@@ -18,5 +19,12 @@
     //ゲスト(About me)ボタンをクリックした時、
     //(About me)用のユーザー名とパスワードを設定する。
     $txtEmail.value= 'aboutme@example.com';
+    $txtPassword.value= 'test1234';
+  });
+
+  $btnLink.addEventListener('click', (e) => {
+    //ゲスト(Link)ボタンをクリックした時、
+    //他のポートフォリオ閲覧用のユーザー名とパスワードを設定する。
+    $txtEmail.value= 'link@example.com';
     $txtPassword.value= 'test1234';
   });

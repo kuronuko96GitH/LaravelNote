@@ -114,7 +114,7 @@
                 @endforeach
                     </select>
                 </div>
-            @if( $user['admin_code'] < 9 )
+            @if( $user['admin_code'] <= 7 )
                 <br>
                 <button type='submit' class="btn btn-primary btn-lg">更新</button>
             @endif
@@ -123,7 +123,7 @@
             <br>
             <form method='POST' action="/delete/{{$memo['id']}}" id='delete-form'>
                         @csrf
-                        @if( $user['admin_code'] < 9 )
+                        @if( $user['admin_code'] <= 7 )
                             <button class='p-0 mr-2' style='border:none;'><i id='delete-button' class="fas fa-trash-alt fa-3x"></i></button> メモの削除
                         @endif
             </form>
