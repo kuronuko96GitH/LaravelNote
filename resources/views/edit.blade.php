@@ -25,38 +25,50 @@
             <img src="/storage/Pcl02.png" class='w-100 mb-3'/>
                                     
         @elseif( $memo['id'] === 13 )
-            <img src="/storage/portfolio02.jpg" class='w-100 mb-3'/>
-                                    
-            <div class="text-center">
-                <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
-                    <div class="card-body">
-                        <div>『PHP』で製作したポートフォリオ。『Vue.js』で製作した、オセロゲームが遊べます。
-                        </div>
-                        <div>こちらから⇒<a href="https://kuronuko9646phptest.herokuapp.com" target="_blank" rel="noopener">https://kuronuko9646phptest.herokuapp.com</a></div>
-                        <!-- icon add cdn fontawesome free-->
-                        <div><i class="fab fa-github fa-2x"></i>  GitHub（公開ソースコード）: <a href="https://github.com/kuronuko96GitH/testphp" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/testphp</a></div>
-                    </div>
-                </div>
-            </div>
-        @elseif( $memo['id'] === 12 )
-            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+                <img src="/storage/portfolio05.jpg" class='w-100 mb-3'/>
                 
-            <div class="text-center">
-                <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
-                    <div class="card-body">
-                        <div>『Ruby』と『JavaScript』で製作したタイピングゲームなどを遊んでみたい方は、
+                <div class="text-center">
+                    <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
+                        <div class="card-body">
+                            <div>『Spring Boot』(Javaのフレームワーク)で製作したWebアプリです。
+                            </div>
+                            <div>こちらから⇒<a href="https://kuronuko9646spring.herokuapp.com" target="_blank" rel="noopener">https://kuronuko9646spring.herokuapp.com</a></div>
+                            <!-- icon add cdn fontawesome free-->
+                            <div><i class="fab fa-github fa-2x"></i>  GitHub（公開ソースコード）: <a href="https://github.com/kuronuko96GitH/HerokuSpring" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/HerokuSpring</a></div>
                         </div>
-                        <div>こちらから⇒<a href="https://kuronuko9646rubygames.herokuapp.com" target="_blank" rel="noopener">https://kuronuko9646rubygames.herokuapp.com</a></div>
-                        <!-- icon add cdn fontawesome free-->
-                        <div><i class="fab fa-github fa-2x"></i>  GitHub（公開ソースコード）: <a href="https://github.com/kuronuko96GitH/RubyGames" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/RubyGames</a></div>
                     </div>
                 </div>
-            </div>
+
+        @elseif( $memo['id'] === 12 )
+                <img src="/storage/portfolio02.jpg" class='w-100 mb-3'/>
+                                            
+                <div class="text-center">
+                    <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
+                        <div class="card-body">
+                            <div>『PHP』で製作したポートフォリオ。『Vue.js』で製作した、オセロゲームが遊べます。
+                            </div>
+                            <div>こちらから⇒<a href="https://kuronuko9646phptest.herokuapp.com" target="_blank" rel="noopener">https://kuronuko9646phptest.herokuapp.com</a></div>
+                            <!-- icon add cdn fontawesome free-->
+                            <div><i class="fab fa-github fa-2x"></i>  GitHub（公開ソースコード）: <a href="https://github.com/kuronuko96GitH/testphp" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/testphp</a></div>
+                        </div>
+                    </div>
+                </div>
 
         @elseif( $memo['id'] === 11 )
-<!--
-            <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
--->
+                <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
+                
+                <div class="text-center">
+                    <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
+                        <div class="card-body">
+                            <div>『Ruby』と『JavaScript』で製作したタイピングゲームなどを遊んでみたい方は、
+                            </div>
+                            <div>こちらから⇒<a href="https://kuronuko9646rubygames.herokuapp.com" target="_blank" rel="noopener">https://kuronuko9646rubygames.herokuapp.com</a></div>
+                            <!-- icon add cdn fontawesome free-->
+                            <div><i class="fab fa-github fa-2x"></i>  GitHub（公開ソースコード）: <a href="https://github.com/kuronuko96GitH/RubyGames" target="_blank" rel="noopener">https://github.com/kuronuko96GitH/RubyGames</a></div>
+                        </div>
+                    </div>
+                </div>
+    
         @elseif( $memo['id'] === 10 )
 <!--
             <img src="/storage/portfolio01.jpg" class='w-100 mb-3'/>
