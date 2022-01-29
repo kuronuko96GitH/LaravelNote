@@ -25,7 +25,7 @@
             <img src="/storage/Pcl02.png" class='w-100 mb-3'/>
                                     
         @elseif( $memo['id'] === 13 )
-                <img src="/storage/portfolio05.jpg" class='w-100 mb-3'/>
+                <img src="/storage/portfolio05.png" class='w-100 mb-3'/>
                 
                 <div class="text-center">
                     <div class="card text-white bg-black mb-3" style="max-width: 50rem;">
